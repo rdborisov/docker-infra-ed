@@ -1,0 +1,32 @@
+services:
+    openldap:
+        image: osixia/openldap:latest
+        ports:
+            - "389:389"
+            - "636:636"
+        env_file:
+            - .env
+        volumes:
+            - /var/lib/ldap
+            - /etc/ldap/slapd.d
+            - /container/service/slapd/assets/certs/
+         
+    phpldapadmin:
+        image: osixia/phpldapadmin:latest
+        container_name: phpldapadmin
+        env_file:
+            - .env
+        ports:
+            - "8081:80"
+        depends_on:
+            - openldap
+    
+    gitlab:
+        image: gitlab/gitlab-ce:latest
+        ports:
+            - "8080:80"
+        volumes:
+            - ./gitlab/gitlab_home/config:/etc/gitlab
+            - ./gitlab/gitlab_home/logs:/var/log/gitlab
+            - ./gitlab/gitlab_home/data:/var/opt/gitlab
+    
