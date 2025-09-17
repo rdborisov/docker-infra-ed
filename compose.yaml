@@ -36,3 +36,20 @@ services:
         restart: always
         depends_on:
             - openldap
+    
+    rocketchat:
+        image: rocketchat/rocket.chat:latest
+        container_name: rocketchat
+        ports:
+            - "3000:3000"
+        env_file:
+            - .env_rocketchat
+        depends_on:
+            - mongodb
+    
+    mongodb:
+        image: bitnami/mongodb:latest
+        volumes:
+            -  ./mongodb_data:/bitnami/mongodb
+        env_file:
+            - .env_rocketchat
