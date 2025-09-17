@@ -23,10 +23,16 @@ services:
     
     gitlab:
         image: gitlab/gitlab-ce:latest
+        container_name: gitlab
         ports:
             - "8080:80"
+            - "443:443"
         volumes:
-            - ./gitlab/gitlab_home/config:/etc/gitlab
-            - ./gitlab/gitlab_home/logs:/var/log/gitlab
-            - ./gitlab/gitlab_home/data:/var/opt/gitlab
-    
+            - ./gitlab/config:/etc/gitlab
+            - ./gitlab/logs:/var/log/gitlab
+            - ./gitlab/data:/var/opt/gitlab
+        environment:
+            GITLAB_ROOT_PASSWORD: "NewStrongPassword123!"
+        restart: always
+        depends_on:
+            - openldap
