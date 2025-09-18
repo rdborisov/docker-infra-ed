@@ -38,7 +38,7 @@ services:
             - openldap
     
     mongodb:
-        image: bitnami/mongodb:latest
+        image: docker.io/bitnamilegacy/mongodb:latest
         volumes:
             -  ./mongodb_data:/bitnami/mongodb
         env_file:
