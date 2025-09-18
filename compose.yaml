@@ -5,7 +5,7 @@ services:
             - "389:389"
             - "636:636"
         env_file:
-            - .env
+            - ./env/.env_ldap
         volumes:
             - /var/lib/ldap
             - /etc/ldap/slapd.d
@@ -15,7 +15,7 @@ services:
         image: osixia/phpldapadmin:latest
         container_name: phpldapadmin
         env_file:
-            - .env
+            - ./env/.env_ldap
         ports:
             - "8081:80"
         depends_on:
@@ -31,25 +31,25 @@ services:
             - ./gitlab/config:/etc/gitlab
             - ./gitlab/logs:/var/log/gitlab
             - ./gitlab/data:/var/opt/gitlab
-        environment:
-            GITLAB_ROOT_PASSWORD: "NewStrongPassword123!"
+        env_file:
+            - ./env/.env_gitlab
         restart: always
         depends_on:
             - openldap
-    
-    rocketchat:
-        image: rocketchat/rocket.chat:latest
-        container_name: rocketchat
-        ports:
-            - "3000:3000"
-        env_file:
-            - .env_rocketchat
-        depends_on:
-            - mongodb
     
     mongodb:
         image: bitnami/mongodb:latest
         volumes:
             -  ./mongodb_data:/bitnami/mongodb
         env_file:
-            - .env_rocketchat
+            - ./env/.env_rocketchat
+
+    rocketchat:
+        image: rocketchat/rocket.chat:latest
+        container_name: rocketchat
+        ports:
+            - "3000:3000"
+        env_file:
+            - ./env/.env_rocketchat
+        depends_on:
+            - mongodb
