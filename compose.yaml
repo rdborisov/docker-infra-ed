@@ -44,9 +44,9 @@ services:
             - infra
     
     mongodb:
-        image: docker.io/bitnamilegacy/mongodb:latest
+        image: docker.io/bitnami/mongodb:5.0
         volumes:
-            -  ./mongodb_data:/bitnami/mongodb
+            -  mongodb_data:/bitnami/mongodb
         env_file:
             - ./env/.env_rocketchat
         networks:
@@ -67,3 +67,6 @@ networks:
     infra:
         driver: bridge
         attachable: true
+
+volumes:
+  mongodb_data:
