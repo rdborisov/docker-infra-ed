@@ -24,3 +24,57 @@
   ```
   docker compose down
   ```
+
+
+Задача№ 1
+Скриншоты результата выполнения команд:
+docker version
+docker compose version
+docker compose ps
+
+![[7 Docker-infra/screenshots//Pasted image 20250922213026.png]]
+
+Задача№ 2
+
+- Скриншот результата выполнения команды docker compose ps
+- Скриншот выполненного входа в веб-интерфейс phpLDAPadmin
+
+![[7 Docker-infra/screenshots//Pasted image 20250922213535.png]]
+![[7 Docker-infra/screenshots//Pasted image 20250922213627.png]]
+
+![[7 Docker-infra/screenshots//Pasted image 20250922213700.png]]
+
+![[7 Docker-infra/screenshots//Pasted image 20250922213739.png]]
+
+
+Задача 3 и 4
+
+- Скриншот результата выполнения команды docker compose ps
+- Скриншот выполненного входа в GitLab
+![[7 Docker-infra/screenshots//Pasted image 20250922213858.png]]
+![[7 Docker-infra/screenshots//Pasted image 20250922214009.png]]
+![[7 Docker-infra/screenshots//Pasted image 20250922214054.png]]
+
+
+
+Задача 5
+
+- Создайте учётную запись в LDAP-каталоге в соответствии с инструкцией. Сделайте скриншот.
+- Выполните вход в GitLab с созданной учётной записью. Сделайте
+скриншот
+![[7 Docker-infra/screenshots//Pasted image 20250922214309.png]]
+![[7 Docker-infra/screenshots//Pasted image 20250922214402.png]]
+![[7 Docker-infra/screenshots//Pasted image 20250922214432.png]]
+
+
+Задача 6 и 7
+
+- Скриншот результата выполнения команды docker compose psÂ
+- Скриншот выполненного входа в Rocket Chat.
+
+![[7 Docker-infra/screenshots//Pasted image 20250922214546.png]]
+
+![[7 Docker-infra/screenshots//Pasted image 20250922214924.png]]
+![[7 Docker-infra/screenshots//Pasted image 20250922215017.png]]
+![[7 Docker-infra/screenshots//Pasted image 20250922215037.png]]
+
